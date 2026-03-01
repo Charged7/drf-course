@@ -1,0 +1,64 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="4">
+            <item index="0" class="java.lang.String" itemvalue="hx-post" />
+            <item index="1" class="java.lang.String" itemvalue="hx-push-url" />
+            <item index="2" class="java.lang.String" itemvalue="hx-target" />
+            <item index="3" class="java.lang.String" itemvalue="hx-swap-oob" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="argon2-cffi" />
+          <option value="argon2-cffi-bindings" />
+          <option value="bcrypt" />
+          <option value="cffi" />
+          <option value="contourpy" />
+          <option value="coverage" />
+          <option value="cycler" />
+          <option value="django-axes" />
+          <option value="django-ckeditor-5" />
+          <option value="django-csp" />
+          <option value="django-debug-toolbar" />
+          <option value="django-honeypot" />
+          <option value="django-js-asset" />
+          <option value="django-phonenumber-field" />
+          <option value="fonttools" />
+          <option value="kiwisolver" />
+          <option value="matplotlib" />
+          <option value="numpy" />
+          <option value="packaging" />
+          <option value="phonenumberslite" />
+          <option value="pillow" />
+          <option value="psycopg" />
+          <option value="psycopg-binary" />
+          <option value="pycparser" />
+          <option value="pyparsing" />
+          <option value="python-dateutil" />
+          <option value="python-decouple" />
+          <option value="six" />
+          <option value="typing_extensions" />
+          <option value="Django" />
+          <option value="sqlparse" />
+          <option value="tzdata" />
+          <option value="dj-config-url" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="pytest" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,97 @@
+### Login
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "test"
+}
+
+> {%
+    client.global.set("token", response.body.access);
+    client.global.set("refresh_token_variable", response.body.refresh);
+%}
+
+### Refresh token with rotation
+POST http://127.0.0.1:8000/api/token/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "{{refresh_token_variable}}"
+}
+
+> {%
+    client.global.set("token", response.body.access);
+    client.global.set("refresh_token_variable", response.body.refresh);
+%}
+
+### Logout (Blacklist refresh token)
+POST http://127.0.0.1:8000/api/token/logout/
+Content-Type: application/json
+
+### Get all products
+GET http://127.0.0.1:8000/products/
+
+### Get a specific product
+GET http://127.0.0.1:8000/products/3/
+
+### Delete a specific product
+DELETE http://127.0.0.1:8000/products/2/
+
+### Update a specific product
+PUT http://127.0.0.1:8000/products/2/
+Content-Type: application/json
+
+{
+  "name": "iPhone 17 Pro Max",
+  "description": "The most expensive version of iPhone",
+  "price": "2000",
+  "stock": "0"
+}
+
+### Create product
+POST http://127.0.0.1:8000/products/
+Content-Type: application/json
+
+{
+  "name": "iPhone 17 Pro Max",
+  "description": "The most expensive version of iPhone",
+  "price": "2000",
+  "stock": "0"
+}
+
+### Get all orders for admin and only user's orders for normal user
+GET http://127.0.0.1:8000/orders/
+
+###
+POST http://127.0.0.1:8000/orders/
+Content-Type: application/json
+
+{
+  "status": "Pending",
+  "items": [
+    {
+      "product": 5,
+      "quantity": 1
+    },
+    {
+      "product": 6,
+      "quantity": 3
+    }
+  ]
+
+}
+
+### Get specific user's order
+GET http://127.0.0.1:8000/orders/f696122f-d93a-401f-b0e2-de8b30fc3650/
+
+###
+PUT http://127.0.0.1:8000/orders/f696122f-d93a-401f-b0e2-de8b30fc3650/
+Content-Type: application/json
+
+{
+  "status": "Confirmed"
+}
+
+### Delete specific user's order
+DELETE http://127.0.0.1:8000/orders/e4a7a4ad-90c8-41d9-b113-707950c39fb7/
