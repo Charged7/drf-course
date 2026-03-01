@@ -1,9 +1,9 @@
 ### Login
-POST http://127.0.0.1:8000/api/token/
+POST https://drf-course-x9hu.onrender.com/api/token/
 Content-Type: application/json
 
 {
-  "username": "admin",
+  "username": "charged",
   "password": "test"
 }
 
@@ -50,15 +50,131 @@ Content-Type: application/json
 }
 
 ### Create product
-POST http://127.0.0.1:8000/products/
+POST https://drf-course-x9hu.onrender.com/products/
 Content-Type: application/json
 
-{
-  "name": "iPhone 17 Pro Max",
-  "description": "The most expensive version of iPhone",
-  "price": "2000",
-  "stock": "0"
-}
+[
+  {
+    "name": "iPhone 17 Pro Max",
+    "description": "The most expensive version of iPhone with titanium build and A19 chip",
+    "price": "2000",
+    "stock": "0"
+  },
+  {
+    "name": "Samsung Galaxy S25 Ultra",
+    "description": "Samsung's flagship phone with built-in S Pen and 200MP camera",
+    "price": "1399",
+    "stock": "45"
+  },
+  {
+    "name": "MacBook Pro 16-inch M4 Max",
+    "description": "Apple's most powerful laptop with M4 Max chip and Liquid Retina XDR display",
+    "price": "3999",
+    "stock": "12"
+  },
+  {
+    "name": "Sony PlayStation 5 Pro",
+    "description": "Enhanced version of PS5 with upgraded GPU and 4K 120fps gaming support",
+    "price": "699",
+    "stock": "30"
+  },
+  {
+    "name": "Apple Vision Pro 2",
+    "description": "Next-gen spatial computing headset with improved resolution and battery life",
+    "price": "4499",
+    "stock": "5"
+  },
+  {
+    "name": "Dell XPS 15 OLED",
+    "description": "Premium Windows laptop with OLED display and Intel Core Ultra 9 processor",
+    "price": "2299",
+    "stock": "20"
+  },
+  {
+    "name": "DJI Mavic 4 Pro",
+    "description": "Professional drone with Hasselblad camera and 48-minute flight time",
+    "price": "1899",
+    "stock": "18"
+  },
+  {
+    "name": "Bose QuietComfort Ultra Headphones",
+    "description": "Industry-leading noise cancellation with immersive spatial audio",
+    "price": "429",
+    "stock": "75"
+  },
+  {
+    "name": "LG OLED G4 77-inch TV",
+    "description": "Gallery-series OLED TV with a1 AI Processor and Dolby Vision IQ",
+    "price": "3499",
+    "stock": "8"
+  },
+  {
+    "name": "iPad Pro M4 13-inch",
+    "description": "Apple's most advanced iPad with Ultra Retina XDR OLED display",
+    "price": "1599",
+    "stock": "40"
+  },
+  {
+    "name": "Microsoft Surface Pro 11",
+    "description": "Versatile 2-in-1 laptop with Snapdragon X Elite and OLED display",
+    "price": "1799",
+    "stock": "25"
+  },
+  {
+    "name": "Sony WH-1000XM6",
+    "description": "Sony's top noise-cancelling headphones with 40-hour battery and LDAC support",
+    "price": "399",
+    "stock": "60"
+  },
+  {
+    "name": "Garmin Fenix 8 Pro Solar",
+    "description": "Premium multisport GPS smartwatch with solar charging and AMOLED display",
+    "price": "1199",
+    "stock": "15"
+  },
+  {
+    "name": "Nintendo Switch 2",
+    "description": "Next-generation Nintendo console with 4K docked mode and upgraded Joy-Cons",
+    "price": "449",
+    "stock": "100"
+  },
+  {
+    "name": "Canon EOS R5 Mark II",
+    "description": "Professional mirrorless camera with 45MP sensor and 8K RAW video recording",
+    "price": "4299",
+    "stock": "7"
+  },
+  {
+    "name": "Apple Watch Ultra 3",
+    "description": "Rugged smartwatch with titanium case, precision dual-frequency GPS and 72h battery",
+    "price": "999",
+    "stock": "22"
+  },
+  {
+    "name": "Razer Blade 18 RTX 5090",
+    "description": "High-performance gaming laptop with NVIDIA RTX 5090 and 240Hz QHD+ display",
+    "price": "4999",
+    "stock": "3"
+  },
+  {
+    "name": "Google Pixel 9 Pro Fold",
+    "description": "Google's premium foldable phone with Tensor G4 chip and built-in Gemini AI",
+    "price": "1899",
+    "stock": "35"
+  },
+  {
+    "name": "Dyson Zone Headphones",
+    "description": "Air-purifying over-ear headphones with active noise cancellation and wearable purifier",
+    "price": "949",
+    "stock": "14"
+  },
+  {
+    "name": "Meta Quest 4 Pro",
+    "description": "Advanced VR/MR headset with eye tracking, face tracking and 4K per-eye resolution",
+    "price": "1299",
+    "stock": "28"
+  }
+]
 
 ### Get all orders for admin and only user's orders for normal user
 GET http://127.0.0.1:8000/orders/
