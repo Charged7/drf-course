@@ -54,6 +54,19 @@ class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
             self.permission_classes = [IsAdminUser]
         return super().get_permissions()
 
+    def _invalidate_product_cache(self):
+        # Deletes all keys matching this pattern from Redis
+        keys = cache.keys('*.product_list.*')
+        if keys:
+            cache.delete_many(keys)
+
+    def perform_update(self, serializer):
+        super().perform_update(serializer)
+        self._invalidate_product_cache()
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+        self._invalidate_product_cache()
 
 @extend_schema(
         summary="Статистика по товарах",
