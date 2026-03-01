@@ -65,9 +65,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'drf_course.wsgi.application'
 
 # DATABASE_URL берётся из .env файла
+import os
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL'),
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=60,
         conn_health_checks=True,
     )
