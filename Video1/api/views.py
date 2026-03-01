@@ -25,15 +25,9 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
     filterset_class = ProductFilter
     pagination_class = None
 
-    @method_decorator(cache_page(60 * 60, key_prefix='product_list'))
-    def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
-
-    def perform_create(self, serializer):
-        super().perform_create(serializer)
-        keys = cache.keys('*.product_list.*')
-        if keys:
-            cache.delete_many(keys)
+    # @method_decorator(cache_page(60 * 60, key_prefix='product_list'))
+    # def list(self, request, *args, **kwargs):
+    #     return super().list(request, *args, **kwargs)
 
     def get_permissions(self):
         self.permission_classes = [AllowAny]
@@ -54,19 +48,6 @@ class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
             self.permission_classes = [IsAdminUser]
         return super().get_permissions()
 
-    def _invalidate_product_cache(self):
-        # Deletes all keys matching this pattern from Redis
-        keys = cache.keys('*.product_list.*')
-        if keys:
-            cache.delete_many(keys)
-
-    def perform_update(self, serializer):
-        super().perform_update(serializer)
-        self._invalidate_product_cache()
-
-    def perform_destroy(self, instance):
-        super().perform_destroy(instance)
-        self._invalidate_product_cache()
 
 @extend_schema(
         summary="Статистика по товарах",
