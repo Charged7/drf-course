@@ -29,6 +29,12 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
+    def perform_create(self, serializer):
+        super().perform_create(serializer)
+        keys = cache.keys('*.product_list.*')
+        if keys:
+            cache.delete_many(keys)
+
     def get_permissions(self):
         self.permission_classes = [AllowAny]
         if self.request.method == 'POST':

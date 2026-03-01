@@ -64,7 +64,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'drf_course.wsgi.application'
 
-# Supabase PostgreSQL через Session Pooler (IPv4-совместимый)
 # DATABASE_URL берётся из .env файла
 DATABASES = {
     'default': dj_database_url.config(
@@ -100,6 +99,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'api.User'
